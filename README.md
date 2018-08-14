@@ -1,3 +1,5 @@
+This is a Fork from MyTheValentinus/myjdownloader-docker that I use for some personal testing.
+
 # MyJDownloader
 
 ## Running the container
