@@ -8,6 +8,8 @@ RUN mkdir -p /opt/JDownloader/Downloads && \
     chown -R jdownloader /opt/JDownloader
 
 COPY startJD2.sh /opt/JDownloader/
+COPY sevenzipjbinding1509.jar /opt/JDownloader/libs/
+COPY sevenzipjbinding1509Linux.jar /opt/JDownloader/libs/
 RUN chmod +x /opt/JDownloader/startJD2.sh && \
     chown jdownloader /opt/JDownloader/startJD2.sh
 
