@@ -1,4 +1,4 @@
-FROM openjdk:8-jre-alpine
+FROM openjdk
 
 MAINTAINER ValentinDeville <contact@valentin-deville.eu>
 
