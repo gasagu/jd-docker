@@ -11,7 +11,7 @@ RUN mkdir -p /opt/JDownloader/ && \
     apt-get clean
 
 #COPY startJD2.sh /opt/JDownloader/
-'RUN chmod +x /opt/JDownloader/startJD2.sh
+#RUN chmod +x /opt/JDownloader/startJD2.sh
 
 # Run this when the container is started
 #ENTRYPOINT ["/sbin/tini", "-g", "--", "/opt/JDownloader/startJD2.sh"]
