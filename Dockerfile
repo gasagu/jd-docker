@@ -6,8 +6,10 @@ MAINTAINER MariusBelzner <mariusbelzner@gmail.com>
 RUN mkdir -p /opt/JDownloader/ && \
     wget -O /opt/JDownloader/JDownloader.jar http://installer.jdownloader.org/JDownloader.jar && \
     apt-get update && \
+    apt-get install wget && \
     apt-get install oracle-java8-jdk && \
     apt-get install unrar && \
+    apt-get purge wget && \
     apt-get clean
 
 #COPY startJD2.sh /opt/JDownloader/
