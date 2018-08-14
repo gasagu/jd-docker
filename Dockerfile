@@ -12,5 +12,5 @@ RUN mkdir -p /opt/JDownloader/ && \
 #CMD ["java", "-Djava.awt.headless=true", "-jar", "/opt/JDownloader/JDownloader.jar", "-norestart"]
 #java -jar JDownloader.jar -norestart
 WORKDIR /opt/JDownloader
-ENTRYPOINT ["/bin/bash"]
+ENTRYPOINT ["/bin/bash", "-i", "-t"]
 # CMD ["java", "-jar", "JDownloader.jar", "-norestart"]
