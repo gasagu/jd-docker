@@ -1,16 +1,10 @@
-FROM ubuntu:latest
+FROM openjdk:8-jre
 
 MAINTAINER MariusBelzner <mariusbelzner@gmail.com>
 
 # Create directory and start JD2 for the initial update and creation of config files.
 RUN mkdir -p /opt/JDownloader/ && \
-    apt-get update && \
-    apt-get install -y wget && \
     wget -O /opt/JDownloader/JDownloader.jar http://installer.jdownloader.org/JDownloader.jar && \
-    apt-get install oracle-java8-jdk && \
-    apt-get install unrar && \
-    apt-get purge wget && \
-    apt-get clean
 
 #COPY startJD2.sh /opt/JDownloader/
 #RUN chmod +x /opt/JDownloader/startJD2.sh
@@ -21,4 +15,4 @@ RUN mkdir -p /opt/JDownloader/ && \
 #java -jar JDownloader.jar -norestart
 WORKDIR /opt/JDownloader
 ENTRYPOINT ["/bin/bash"]
-CMD ["java", "-jar", "JDownloader.jar", "-norestart"]
+# CMD ["java", "-jar", "JDownloader.jar", "-norestart"]
