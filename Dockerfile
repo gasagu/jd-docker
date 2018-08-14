@@ -12,9 +12,8 @@ RUN chmod +x /opt/JDownloader/startJD2.sh && \
     chown jdownloader /opt/JDownloader/startJD2.sh
 
 USER jdownloader
+WORKDIR /opt/JDownloader
 
 # Run this when the container is started
-WORKDIR /opt/JDownloader
 ENTRYPOINT ["/opt/JDownloader/startJD2.sh"]
 CMD ["java","-jar", "/opt/JDownloader/JDownloader.jar", "-norestart"]
-#java -jar JDownloader.jar -norestart
