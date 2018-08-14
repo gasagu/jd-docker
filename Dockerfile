@@ -1,7 +1,5 @@
 FROM openjdk:8-jre
 
-MAINTAINER MariusBelzner <mariusbelzner@gmail.com>
-
 # Create directory and start JD2 for the initial update and creation of config files.
 RUN mkdir -p /opt/JDownloader/ && \
     wget -O /opt/JDownloader/JDownloader.jar http://installer.jdownloader.org/JDownloader.jar && \
