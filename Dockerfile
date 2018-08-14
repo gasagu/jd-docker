@@ -1,16 +1,22 @@
-FROM openjdk:11-jre-slim
+FROM ubuntu:latest
 
-MAINTAINER ValentinDeville <contact@valentin-deville.eu>
+MAINTAINER MariusBelzner <mariusbelzner@gmail.com>
 
 # Create directory and start JD2 for the initial update and creation of config files.
 RUN mkdir -p /opt/JDownloader/ && \
     wget -O /opt/JDownloader/JDownloader.jar http://installer.jdownloader.org/JDownloader.jar && \
-    java -Djava.awt.headless=true -jar /opt/JDownloader/JDownloader.jar && \
-    apk add --no-cache --quiet tini
+    apt-get update && \
+    apt-get install oracle-java8-jdk && \
+    apt-get install unrar && \
+    apt-get clean
 
-COPY startJD2.sh /opt/JDownloader/
-RUN chmod +x /opt/JDownloader/startJD2.sh
+#COPY startJD2.sh /opt/JDownloader/
+'RUN chmod +x /opt/JDownloader/startJD2.sh
 
 # Run this when the container is started
-ENTRYPOINT ["/sbin/tini", "-g", "--", "/opt/JDownloader/startJD2.sh"]
-CMD ["java", "-Djava.awt.headless=true", "-jar", "/opt/JDownloader/JDownloader.jar", "-norestart"]
+#ENTRYPOINT ["/sbin/tini", "-g", "--", "/opt/JDownloader/startJD2.sh"]
+#CMD ["java", "-Djava.awt.headless=true", "-jar", "/opt/JDownloader/JDownloader.jar", "-norestart"]
+#java -jar JDownloader.jar -norestart
+WORKDIR /opt/JDownloader
+ENTRYPOINT ["/bin/bash"]
+CMD ["java", "-jar", "JDownloader.jar", "-norestart"]
