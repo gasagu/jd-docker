@@ -9,7 +9,7 @@ Before you run the container, check if you already have a My JDownloader acount.
 ```docker run -d --name JDownloader -v /config/jd2:/opt/JDownloader/cfg -v /home/user/Downloads:/opt/JDownloader/Downloads -e JDEMAIL=yourmail@mail -e JDPASSWORD=yourpassword -e JDDEVICENAME=yourdevicenameinmyjd gasagu/myjdownloader-docker```
 
 ## Runnint the container with Docker compose
-In my opinion you have a really nice process if set the container up with plex and a shared volume. I will provide an example but at this time I didnt test this. I copied it out of my own compose files.
+In my opinion you have a really nice process if set the container up with Plex and a shared volume. I will provide an example but at this time I didnt test this. I copied it out of my own compose files.
 
 Your `docker-compose.yml` could look like this:
 
@@ -88,6 +88,19 @@ Your `docker-compose.yml` could look like this:
         volumes:
           - jd_cfg:/opt/JDownloader/cfg
           - media:/opt/JDownloader/Downloads
+          
+You can launch it with ```docker compose up -d```
         
 ## Accessing JDownloader from outside
 Go to the [My JDownloader Webinterface](https://my.jdownloader.org/) and log in with you acount. There is also a Chrome plugin for Click'n'Load that works very well.
+
+## Rar5 support
+Read [this](https://board.jdownloader.org/showthread.php?t=71069) if you are interested. The goal for the future is to support the Rar5 Beta already integrated in the container but right now its not working like intended. I would be happy if someone wants to help.
+
+## Different image versions
+```gasagu/jd-docker:latest```
+Autobuild from the master branch.
+```gasagu/jd-docker:rar5```
+Autobuild from the rar5 branch. Right now the rar5 support is not working.
+```gasagu/jd-docker:beta```
+Autobuild from the experimental branch.
