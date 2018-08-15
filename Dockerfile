@@ -17,4 +17,3 @@ USER jdownloader
 WORKDIR /opt/JDownloader
 ENTRYPOINT ["/opt/JDownloader/startJD2.sh"]
 CMD ["java","-jar", "/opt/JDownloader/JDownloader.jar", "-norestart"]
-#java -jar JDownloader.jar -norestart
